@@ -1,68 +1,68 @@
-# Muros Pantalla â€¢ Geotecnia y Cimentaciones Profundas
-> **AplicaciÃ³n interactiva de presentaciÃ³n tÃ©cnica de alta definiciÃ³n, control de ejecuciÃ³n y evaluaciÃ³n normativa.**
-> Basado en CTE DB-SE-C (Cimientos), EurocÃ³digo 7 (UNE-EN 1997), UNE-EN 1538 y NTE-CCP.
+# Muros Pantalla • Geotecnia y Cimentaciones Profundas
+> **Aplicación interactiva de presentación técnica de alta definición, control de ejecución y evaluación normativa.**
+> Basado en CTE DB-SE-C (Cimientos), Eurocódigo 7 (UNE-EN 1997), UNE-EN 1538 y NTE-CCP.
 
 ---
 
-## ðŸ—ï¸ DescripciÃ³n General
+## 🏗️ Descripción General
 
-Esta plataforma interactiva reÃºne **23 diapositivas tÃ©cnicas en Full HD (1920x1080)** que cubren Ã­ntegramente la ingenierÃ­a de muros pantalla continuos de hormigÃ³n armado moldeados *in situ*.
+Esta plataforma interactiva reúne **23 diapositivas técnicas en Full HD (1920x1080)** que cubren íntegramente la ingeniería de muros pantalla continuos de hormigón armado moldeados *in situ*.
 
-El visor maximiza el espacio disponible en pantalla para los planos, fotografÃ­as de obra y esquemas cinemÃ¡ticos, con soporte para inspecciÃ³n interactiva mediante zoom y desplazamiento dinÃ¡mico (*pan*).
+El visor maximiza el espacio disponible en pantalla para los planos, fotografías de obra y esquemas cinemáticos, con soporte para inspección interactiva mediante zoom y desplazamiento dinámico (*pan*).
 
 ---
 
-## ðŸ“š Estructura TemÃ¡tica (4 CapÃ­tulos TÃ©cnicos)
+## 📚 Estructura Temática (4 Capítulos Técnicos)
 
-### ðŸ“Œ CapÃ­tulo 1: Principios y Fases Constructivas (Slides 01 â€“ 04)
-- **Slide 01:** Proceso global en 8 fases de ejecuciÃ³n de muros pantalla (muretes guÃ­a, lodos, tubos junta, izado de jaula, hormigonado Tremie y descabezado).
-- **Slide 02:** DiseÃ±o, cotas y funciÃ³n reglamentaria del murete guÃ­a (holgura $E + 3\text{ a }5\text{ cm}$, altura $0.80\text{--}1.00\text{ m}$).
+### 📌 Capítulo 1: Principios y Fases Constructivas (Slides 01 – 04)
+- **Slide 01:** Proceso global en 8 fases de ejecución de muros pantalla (muretes guía, lodos, tubos junta, izado de jaula, hormigonado Tremie y descabezado).
+- **Slide 02:** Diseño, cotas y función reglamentaria del murete guía (holgura $E + 3\text{ a }5\text{ cm}$, altura $0.80\text{--}1.00\text{ m}$).
 - **Slide 03:** Esquema secuencial del batache o panel (mordiscos extremos 1 y 2, mordisco central 3, avance alterno).
-- **Slide 04:** Detalle del sistema de suspensiÃ³n y cuelgue de la armadura sobre los muretes guÃ­a.
+- **Slide 04:** Detalle del sistema de suspensión y cuelgue de la armadura sobre los muretes guía.
 
-### ðŸšœ CapÃ­tulo 2: Maquinaria y Lodos BentonÃ­ticos (Slides 05 â€“ 13)
-- **Slide 05:** GrÃºa de celosÃ­a sobre orugas con cuchara bivalva pesada por caÃ­da libre.
-- **Slide 06:** Cuchara bivalva hidrÃ¡ulica de alta penetraciÃ³n con fuerza de cierre de 120 kN y dientes de widia.
-- **Slide 07:** Cuchara mecÃ¡nica de cables tipo Benoto (doble cabrestante y poleas desmultiplicadoras).
-- **Slide 08:** Cuchara guiada con barra kelly telescÃ³pica tipo Keller (desviaciÃ³n de verticalidad $< 0.5\%$).
-- **Slide 09:** Gama de equipos de perforaciÃ³n pesada sobre chasis de orugas (Kelly y Tranchesol).
-- **Slide 10:** OperaciÃ³n en obra urbana: excavaciÃ³n bajo sobrepresiÃ³n continua de bentonita.
-- **Slide 11:** Hidrofresa cinemÃ¡tica: tambores dentados rotativos contrarrotantes y bomba de circulaciÃ³n inversa.
+### 🚜 Capítulo 2: Maquinaria y Lodos Bentoníticos (Slides 05 – 13)
+- **Slide 05:** Grúa de celosía sobre orugas con cuchara bivalva pesada por caída libre.
+- **Slide 06:** Cuchara bivalva hidráulica de alta penetración con fuerza de cierre de 120 kN y dientes de widia.
+- **Slide 07:** Cuchara mecánica de cables tipo Benoto (doble cabrestante y poleas desmultiplicadoras).
+- **Slide 08:** Cuchara guiada con barra kelly telescópica tipo Keller (desviación de verticalidad $< 0.5\%$).
+- **Slide 09:** Gama de equipos de perforación pesada sobre chasis de orugas (Kelly y Tranchesol).
+- **Slide 10:** Operación en obra urbana: excavación bajo sobrepresión continua de bentonita.
+- **Slide 11:** Hidrofresa cinemática: tambores dentados rotativos contrarrotantes y bomba de circulación inversa.
 - **Slide 12:** Proceso Bauer con hidrofresa: sobre-fresado lateral de traslape para juntas 100% estancas sin tubo junta.
-- **Slide 13:** Planta de tratamiento de lodos bentonÃ­ticos: silos, mezcladores, balsas de maduraciÃ³n y baterÃ­as de hidrociclones (densidad $< 1.15\text{ g/cm}^3$, arena $< 3\%$).
+- **Slide 13:** Planta de tratamiento de lodos bentoníticos: silos, mezcladores, balsas de maduración y baterías de hidrociclones (densidad $< 1.15\text{ g/cm}^3$, arena $< 3\%$).
 
-### ðŸ”© CapÃ­tulo 3: Armaduras, Juntas y Hormigonado Tremie (Slides 14 â€“ 20)
-- **Slide 14:** Despiece estructural de la jaula de ferralla (cruces de San AndrÃ©s, separadores de $70\text{ mm}$ y chimenea Tremie).
-- **Slide 15:** GeometrÃ­a de extremos segÃºn junta lateral (tubo junta circular, plancha plana CWS y waterstop hidroexpansivo).
-- **Slide 16:** ExtracciÃ³n crÃ­tica de tubos junta con gatos hidrÃ¡ulicos durante el fraguado inicial ($3\text{--}5\text{ h}$).
-- **Slide 17:** Maniobra de izado y volteo a 90Â° con grÃºa principal y auxiliar con balancÃ­n.
+### 🔩 Capítulo 3: Armaduras, Juntas y Hormigonado Tremie (Slides 14 – 20)
+- **Slide 14:** Despiece estructural de la jaula de ferralla (cruces de San Andrés, separadores de $70\text{ mm}$ y chimenea Tremie).
+- **Slide 15:** Geometría de extremos según junta lateral (tubo junta circular, plancha plana CWS y waterstop hidroexpansivo).
+- **Slide 16:** Extracción crítica de tubos junta con gatos hidráulicos durante el fraguado inicial ($3\text{--}5\text{ h}$).
+- **Slide 17:** Maniobra de izado y volteo a 90° con grúa principal y auxiliar con balancín.
 - **Slide 18:** Montaje horizontal en banco de ferralla en parcela y empalmes por solape/manguito.
-- **Slide 19:** FabricaciÃ³n industrializada de armaduras tridimensionales en taller robotizado.
-- **Slide 20:** Lectura e interpretaciÃ³n de plano estructural completo (alzados, secciÃ³n vertical, intradÃ³s/trasdÃ³s y empotramiento).
+- **Slide 19:** Fabricación industrializada de armaduras tridimensionales en taller robotizado.
+- **Slide 20:** Lectura e interpretación de plano estructural completo (alzados, sección vertical, intradós/trasdós y empotramiento).
 
-### âš“ CapÃ­tulo 4: Viga de CoronaciÃ³n y Anclajes al Terreno (Slides 21 â€“ 23)
-- **Slide 21:** Descabezado de hormigÃ³n pobre/contaminado y armado monolÃ­tico de la viga de coronaciÃ³n.
-- **Slide 22:** TipologÃ­as de viga de coronaciÃ³n: ejecuciÃ³n en 1 fase vs. ejecuciÃ³n en 2 fases con conectores en espera.
-- **Slide 23:** AnatomÃ­a del anclaje activo al terreno: cabeza de anclaje, cuÃ±as, longitud libre enfundada y bulbo inyectado a presiÃ³n.
+### ⚓ Capítulo 4: Viga de Coronación y Anclajes al Terreno (Slides 21 – 23)
+- **Slide 21:** Descabezado de hormigón pobre/contaminado y armado monolítico de la viga de coronación.
+- **Slide 22:** Tipologías de viga de coronación: ejecución en 1 fase vs. ejecución en 2 fases con conectores en espera.
+- **Slide 23:** Anatomía del anclaje activo al terreno: cabeza de anclaje, cuñas, longitud libre enfundada y bulbo inyectado a presión.
 
 ---
 
-## âŒ¨ï¸ Atajos de Teclado
+## ⌨️ Atajos de Teclado
 
-| Tecla | AcciÃ³n |
+| Tecla | Acción |
 | :--- | :--- |
-| `â†’` / `Espacio` / `D` | Diapositiva siguiente |
-| `â†` / `A` | Diapositiva anterior |
+| `→` / `Espacio` / `D` | Diapositiva siguiente |
+| `←` / `A` | Diapositiva anterior |
 | `B` | Ocultar / Mostrar tira inferior de diapositivas (Modo pantalla gigante) |
 | `Z` / Doble Clic | Abrir visor interactivo con Zoom y desplazamiento (Lightbox) |
 | `W` | Alternar modo de ajuste (Ajustar a pantalla / Ancho completo) |
-| `P` | Activar / Pausar reproducciÃ³n automÃ¡tica (*Autoplay*) |
+| `P` | Activar / Pausar reproducción automática (*Autoplay*) |
 | `F` | Alternar pantalla completa (*Fullscreen*) |
-| `T` | Abrir Test TÃ©cnico interactivo (15 preguntas con justificaciÃ³n normativa) |
+| `T` | Abrir Test Técnico interactivo (15 preguntas con justificación normativa) |
 | `Esc` | Cerrar modales de Zoom o Test |
 
 ---
 
-## ðŸš€ Despliegue en GitHub Pages
+## 🚀 Despliegue en GitHub Pages
 
-Esta aplicaciÃ³n estÃ¡ diseÃ±ada como una SPA (*Single Page Application*) estÃ¡tica y autÃ³noma, lista para su publicaciÃ³n directa en **GitHub Pages**.
+Esta aplicación está diseñada como una SPA (*Single Page Application*) estática y autónoma, lista para su publicación directa en **GitHub Pages**.

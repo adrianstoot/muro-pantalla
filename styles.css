@@ -1,0 +1,199 @@
+/* Custom Stylesheet for Muros Pantalla Presentation App */
+/* Designed for Fullscreen High Definition Slide Experience */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #070a13;
+    color: #f1f5f9;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-ui {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-ui-hover:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* High Contrast Ambient Backdrop for Slide Viewport */
+.slide-backdrop-glow {
+  background: radial-gradient(circle at center, #111a2e 0%, #070a13 85%);
+}
+
+/* Viewport Image Styling - Maximizes Screen Space while preserving aspect ratio */
+.slide-img-viewport {
+  width: 100%;
+  height: 100%;
+  max-width: 98vw;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+  image-rendering: auto;
+}
+
+/* Dynamic Fit Modes */
+.fit-contain {
+  width: 100%;
+  height: 100%;
+  max-width: 98vw;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+}
+
+.fit-contain-collapsed {
+  width: 100%;
+  height: 100%;
+  max-width: 99vw;
+  max-height: calc(100vh - 4.5rem);
+  object-fit: contain;
+}
+
+.fit-width {
+  width: 98vw !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow-y: auto;
+}
+
+/* Filmstrip Thumbnails Track */
+.filmstrip {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 158, 11, 0.4) rgba(15, 23, 42, 0.6);
+}
+
+.filmstrip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filmstrip::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 4px;
+}
+
+.filmstrip::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 4px;
+}
+
+.filmstrip::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.7);
+}
+
+/* Thumbnail Card */
+.thumb-card {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.thumb-card:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.thumb-card.active-thumb {
+  border-color: #f59e0b;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Chapter Navigation Pills */
+.chapter-pill {
+  transition: all 0.15s ease-in-out;
+}
+
+.chapter-pill.active {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
+  border-color: #f59e0b;
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+/* Interactive Lightbox */
+.lightbox-container {
+  cursor: grab;
+}
+
+.lightbox-container:active {
+  cursor: grabbing;
+}
+
+/* Quiz Option Buttons */
+.quiz-opt {
+  transition: all 0.15s ease-in-out;
+}
+
+.quiz-opt:hover:not(.disabled) {
+  border-color: rgba(245, 158, 11, 0.6);
+  background: rgba(245, 158, 11, 0.08);
+  transform: translateX(4px);
+}
+
+.quiz-opt.selected {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.quiz-opt.correct {
+  border-color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #34d399 !important;
+}
+
+.quiz-opt.incorrect {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #f87171 !important;
+}
+
+/* Glow Elements */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+/* Keyboard hint badges */
+.kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: #94a3b8;
+}
+
+/* Pulsing effect for play/pause or indicators */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s infinite ease-in-out;
+}

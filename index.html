@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUROS PANTALLA • Geotecnia y Cimentaciones Profundas (CTE DB-SE-C & Eurocódigo 7)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              950: '#070a13',
+              900: '#0d1322',
+              850: '#131c31',
+              800: '#1b2640',
+              700: '#263558'
+            },
+            accent: {
+              amber: '#f59e0b',
+              gold: '#fbbf24',
+              sky: '#38bdf8',
+              emerald: '#10b981',
+              rose: '#ef4444'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts: Outfit, Space Grotesk, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col justify-between bg-surface-950 text-slate-100 select-none">
+
+  <!-- ============================================== -->
+  <!-- 1. TOP APP HEADER BAR -->
+  <!-- ============================================== -->
+  <header class="h-14 px-4 bg-surface-900/90 border-b border-white/10 flex items-center justify-between shrink-0 z-30 backdrop-blur-md">
+    <!-- Brand / Title -->
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-500/20 text-white font-bold">
+        <i data-lucide="layers" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-base font-bold tracking-tight text-white flex items-center gap-2">
+            MUROS PANTALLA
+            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              HD VIEWER
+            </span>
+          </h1>
+        </div>
+        <p class="text-xs text-slate-400 hidden sm:block">
+          Ingeniería Geotécnica & Cimentaciones Profundas • CTE DB-SE-C | Eurocódigo 7
+        </p>
+      </div>
+    </div>
+
+    <!-- Center Slide Counter Badge -->
+    <div class="flex items-center gap-2 bg-surface-950/80 px-3.5 py-1.5 rounded-xl border border-white/10 shadow-inner">
+      <i data-lucide="presentation" class="w-4 h-4 text-amber-400"></i>
+      <div class="font-mono text-xs font-semibold">
+        <span id="currentSlideNum" class="text-amber-400 font-bold text-sm">01</span>
+        <span class="text-slate-500 mx-0.5">/</span>
+        <span id="totalSlidesNum" class="text-slate-300">23</span>
+      </div>
+    </div>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-2">
+      <!-- Autoplay Toggle -->
+      <button 
+        id="autoplayBtn" 
+        title="Reproducción automática (Tecla P)"
+        class="px-2.5 py-1.5 rounded-xl glass-ui text-xs font-medium text-slate-300 hover:text-white border border-white/10 flex items-center gap-1.5 hover:bg-white/10 transition-all">
+        <i data-lucide="play" class="w-3.5 h-3.5 text-slate-300" id="autoplayIcon"></i>
+        <span class="hidden md:inline" id="autoplayText">Auto (P)</span>
+      </button>
+
+      <!-- Test Modal Trigger -->
+      <button 
+        id="openQuizBtn"
+        title="Abrir Test Técnico de Muros Pantalla (Tecla T)"
+        class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-amber-600/30 text-amber-300 hover:text-white border border-amber-500/40 hover:border-amber-400 text-xs font-semibold flex items-center gap-1.5 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25 transition-all">
+        <i data-lucide="help-circle" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>Test Técnico (T)</span>
+        <span class="text-[10px] bg-amber-500/30 text-amber-200 px-1 rounded font-mono">15 Q</span>
+      </button>
+
+      <!-- Fullscreen Toggle -->
+      <button 
+        id="fullscreenBtn" 
+        title="Pantalla Completa (Tecla F)"
+        class="p-2 rounded-xl glass-ui text-slate-300 hover:text-white border border-white/10 hover:bg-white/10 transition-all">
+        <i data-lucide="maximize" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- 2. SECONDARY CHAPTER PILLS & SLIDE METADATA -->
+  <!-- ============================================== -->
+  <nav class="h-10 px-4 bg-surface-900/60 border-b border-white/5 flex items-center justify-between shrink-0 overflow-x-auto filmstrip">
+    <!-- Chapter Pills (Injected by JS) -->
+    <div class="flex items-center gap-1.5" id="chapterPillsContainer">
+      <!-- Dynamic Buttons -->
+    </div>
+
+    <!-- Active Slide Title Ribbon & Tag -->
+    <div class="hidden lg:flex items-center gap-2 pl-4 text-xs">
+      <span id="slideChapterTag" class="text-amber-400 font-semibold uppercase tracking-wider text-[11px]"></span>
+      <span class="text-slate-600">•</span>
+      <span id="slideNormTag" class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-cyan-300"></span>
+    </div>
+  </nav>
+
+  <!-- ============================================== -->
+  <!-- 3. MAIN SLIDE VIEWPORT (MAXIMIZED FOR HD) -->
+  <!-- ============================================== -->
+  <main class="flex-1 w-full relative overflow-hidden flex flex-col items-center justify-center p-1 sm:p-2 slide-backdrop-glow">
+    
+    <!-- Top-Right Floating Quick Controls -->
+    <div class="absolute top-3 right-3 flex items-center gap-1.5 z-20">
+      <!-- Fit Mode Toggle -->
+      <button 
+        id="zoomFitBtn"
+        title="Ajustar Tamaño de Pantalla (Tecla W)"
+        class="px-2.5 py-1.5 rounded-xl glass-ui text-xs font-medium text-slate-200 hover:text-white border border-white/10 flex items-center gap-1.5 hover:bg-white/15 shadow-xl transition-all">
+        <i data-lucide="aspect-ratio" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span class="hidden sm:inline">Ajuste (W)</span>
+      </button>
+
+      <!-- Zoom HD Lightbox Trigger -->
+      <button 
+        id="zoomInBtn"
+        title="Ampliación con Zoom Interactivo y Pan (Tecla Z o Doble Clic)"
+        class="px-2.5 py-1.5 rounded-xl glass-ui text-xs font-medium text-slate-200 hover:text-white border border-white/10 flex items-center gap-1.5 hover:bg-white/15 shadow-xl transition-all">
+        <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span class="hidden sm:inline">Zoom HD (Z)</span>
+      </button>
+
+      <!-- Toggle Filmstrip Drawer -->
+      <button 
+        id="toggleFilmstripBtn"
+        title="Ocultar/Mostrar Tira de Diapositivas (Tecla B)"
+        class="px-2.5 py-1.5 rounded-xl glass-ui text-xs font-medium text-slate-200 hover:text-white border border-white/10 flex items-center gap-1.5 hover:bg-white/15 shadow-xl transition-all">
+        <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span id="toggleFilmstripText" class="hidden sm:inline">Ocultar Tira (B)</span>
+      </button>
+    </div>
+
+    <!-- Central Slide Display Viewport -->
+    <div id="slideViewportContainer" class="flex-1 w-full h-[calc(100vh-9.5rem)] flex items-center justify-center p-1 sm:p-2 overflow-hidden relative group">
+      
+      <!-- Slide Image Element (Maximized & Sharp) -->
+      <img 
+        id="mainSlideImg" 
+        src="slides/slide-01.png" 
+        alt="Diapositiva Muro Pantalla" 
+        class="slide-img-viewport fit-contain pointer-events-auto cursor-zoom-in"
+        title="Doble clic para ampliar con zoom interactivo"
+      />
+
+      <!-- Floating Left Navigation Trigger Button -->
+      <button 
+        id="prevSlideBtn" 
+        class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-ui border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:scale-105 active:scale-95 shadow-2xl hover:bg-white/15 z-20"
+        title="Diapositiva Anterior (Flecha Izquierda / A)">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Floating Right Navigation Trigger Button -->
+      <button 
+        id="nextSlideBtn" 
+        class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-ui border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:scale-105 active:scale-95 shadow-2xl hover:bg-white/15 z-20"
+        title="Diapositiva Siguiente (Flecha Derecha / D / Espacio)">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ============================================== -->
+  <!-- 4. BOTTOM FILMSTRIP DRAWER (COLLAPSIBLE) -->
+  <!-- ============================================== -->
+  <footer id="filmstripDrawer" class="h-20 px-4 bg-surface-900/90 border-t border-white/5 flex items-center gap-3 shrink-0 z-20 transition-all duration-300">
+    <!-- Slide Filmstrip Scroll Track -->
+    <div class="flex-1 flex items-center gap-2 overflow-x-auto filmstrip py-1" id="filmstripContainer">
+      <!-- Injected by JS: 23 Thumbnails -->
+    </div>
+
+    <!-- Quick Navigation Keys Indicator -->
+    <div class="hidden xl:flex items-center gap-2 text-[11px] text-slate-400 pl-2 shrink-0 border-l border-white/10">
+      <span><span class="kbd">←</span> <span class="kbd">→</span> Nav</span>
+      <span><span class="kbd">Z</span> Zoom</span>
+      <span><span class="kbd">B</span> Tira</span>
+      <span><span class="kbd">T</span> Test</span>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- 5. LIGHTBOX MODAL WITH INTERACTIVE PAN & ZOOM -->
+  <!-- ============================================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex flex-col justify-between p-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between text-white border-b border-white/10 pb-3">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs border border-amber-500/30">
+          DETALLE HD INTERACTIVO
+        </span>
+        <h3 id="lightboxTitle" class="text-sm font-semibold text-slate-200">Visor de Detalle</h3>
+      </div>
+      <!-- Zoom Controls & Close -->
+      <div class="flex items-center gap-2">
+        <button id="lightboxZoomOut" class="p-2 rounded-lg glass-ui hover:bg-white/10 text-slate-300 hover:text-white" title="Reducir (-)">
+          <i data-lucide="zoom-out" class="w-4 h-4"></i>
+        </button>
+        <span id="lightboxZoomLevel" class="text-xs font-mono px-2 py-1 bg-surface-800 rounded text-amber-400">100%</span>
+        <button id="lightboxZoomIn" class="p-2 rounded-lg glass-ui hover:bg-white/10 text-slate-300 hover:text-white" title="Ampliar (+)">
+          <i data-lucide="zoom-in" class="w-4 h-4"></i>
+        </button>
+        <button id="lightboxReset" class="px-2.5 py-1 text-xs rounded-lg glass-ui hover:bg-white/10 text-slate-300 hover:text-white">
+          Reiniciar
+        </button>
+        <button id="closeLightboxBtn" class="p-2 rounded-lg glass-ui hover:bg-red-500/20 hover:text-red-400 text-slate-300 ml-2" title="Cerrar (Esc)">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Image Viewport Area -->
+    <div class="flex-1 w-full flex items-center justify-center overflow-hidden my-3 relative select-none lightbox-container" id="lightboxViewport">
+      <img 
+        id="lightboxImg" 
+        src="slides/slide-01.png" 
+        alt="Detalle" 
+        class="max-w-none transition-transform duration-75 origin-center shadow-2xl rounded-lg"
+        style="transform: scale(1) translate(0px, 0px);"
+      />
+    </div>
+
+    <!-- Lightbox Footer Instructions -->
+    <div class="text-center text-xs text-slate-400 border-t border-white/10 pt-2 flex items-center justify-center gap-4 font-mono">
+      <span>Rueda del ratón: Zoom</span>
+      <span>•</span>
+      <span>Clic y arrastrar: Desplazar</span>
+      <span>•</span>
+      <span>Esc: Salir</span>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- 6. TECHNICAL QUIZ / TEST MODAL -->
+  <!-- ============================================== -->
+  <div id="quizModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="w-full max-w-3xl bg-surface-900 border border-white/15 rounded-2xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden">
+      
+      <!-- Quiz Header -->
+      <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-surface-850">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white tracking-wide">EVALUACIÓN TÉCNICA • MUROS PANTALLA</h3>
+            <p class="text-xs text-slate-400">Control de Calidad, Maquinaria, Lodos y Cimentaciones</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <div class="text-xs text-slate-400 font-mono">Pregunta</div>
+            <div class="text-sm font-bold text-amber-400 font-mono">
+              <span id="quizCurrentIndex">1</span> / <span id="quizTotalQuestions">15</span>
+            </div>
+          </div>
+          <button id="closeQuizBtn" class="p-2 rounded-lg glass-ui hover:bg-red-500/20 hover:text-red-400 text-slate-400">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-full h-1.5 bg-surface-950">
+        <div id="quizProgressBar" class="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-300" style="width: 6.66%;"></div>
+      </div>
+
+      <!-- Quiz Body Area -->
+      <div class="p-6 overflow-y-auto filmstrip flex-1 space-y-5" id="quizBody">
+        
+        <!-- Question Badge & Text -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span id="quizSlideRefTag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              Ref: Diapositiva 1
+            </span>
+            <span class="text-xs text-slate-400 font-medium">Selecciona la respuesta correcta:</span>
+          </div>
+          <h4 id="quizQuestionText" class="text-base sm:text-lg font-semibold text-white leading-relaxed">
+            Texto de la pregunta técnica...
+          </h4>
+        </div>
+
+        <!-- Options Container -->
+        <div id="quizOptionsContainer" class="space-y-2.5 pt-2">
+          <!-- Injected by JS: 4 Options -->
+        </div>
+
+        <!-- Instant Feedback & Explanation Card -->
+        <div id="quizFeedbackBox" class="p-4 rounded-xl border hidden transition-all">
+          <div class="flex items-start gap-3">
+            <div id="quizFeedbackIcon" class="mt-0.5"></div>
+            <div>
+              <h5 id="quizFeedbackTitle" class="text-xs font-bold uppercase tracking-wider mb-1"></h5>
+              <p id="quizFeedbackText" class="text-xs text-slate-300 leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiz Footer Controls -->
+      <div class="px-6 py-4 border-t border-white/10 bg-surface-850 flex items-center justify-between">
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <span>Aciertos: <strong id="quizScoreText" class="text-amber-400">0</strong></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="quizPrevBtn" class="px-3 py-1.5 rounded-lg glass-ui text-xs font-medium text-slate-300 hover:text-white border border-white/10 flex items-center gap-1">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Anterior</span>
+          </button>
+          <button id="quizNextBtn" class="px-4 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-surface-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-amber-500/20">
+            <span>Siguiente</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="slides_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
